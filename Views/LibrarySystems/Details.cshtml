@@ -1,0 +1,59 @@
+﻿@model Library_Management_System.Models.LibrarySystem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+
+    <h2 class="fw-bold text-success mb-4">Borrow Record Details</h2>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header text-white" style="background-color:#1b4332;">
+            <h4 class="mb-0">Record Information</h4>
+        </div>
+
+        <div class="card-body p-4">
+
+            <dl class="row">
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.BorrowerName)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.BorrowerName)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.BookTitle)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.BookTitle)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.Author)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Author)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.BorrowDate)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.BorrowDate)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.ReturnDate)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ReturnDate)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.DaysBorrowed)</dt>
+                <dd class="col-sm-9 fw-bold">@Html.DisplayFor(model => model.DaysBorrowed)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.LateFee)</dt>
+                <dd class="col-sm-9 text-danger fw-bold">@Html.DisplayFor(model => model.LateFee)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.BorrowDurationCategory)</dt>
+                <dd class="col-sm-9">
+                    <span class="badge rounded-pill
+                        @(Model.BorrowDurationCategory == "Short-term" ? "bg-success" :
+                                                    Model.BorrowDurationCategory == "Regular" ? "bg-warning text-dark" :
+                                                    "bg-danger")">
+                        @Html.DisplayFor(model => model.BorrowDurationCategory)
+                    </span>
+                </dd>
+            </dl>
+
+        </div>
+
+        <div class="card-footer d-flex justify-content-end gap-2">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-success px-4">Edit</a>
+            <a asp-action="Index" class="btn btn-success px-4">Back to List</a>
+        </div>
+    </div>
+
+</div>

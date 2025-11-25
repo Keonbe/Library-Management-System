@@ -1,0 +1,44 @@
+﻿@model Library_Management_System.Models.LibrarySystem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container mt-5">
+
+    <h2 class="fw-bold text-success mb-4">Delete Borrow Record</h2>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header text-white" style="background-color:#1b4332;">
+            <h5 class="mb-0">Confirm Deletion</h5>
+        </div>
+
+        <div class="card-body p-4">
+            <p class="fw-semibold">Are you sure you want to delete this record?</p>
+
+            <dl class="row">
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.BorrowerName)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.BorrowerName)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.BookTitle)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.BookTitle)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.Author)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Author)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.BorrowDate)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.BorrowDate)</dd>
+
+                <dt class="col-sm-3 text-success fw-semibold">@Html.DisplayNameFor(model => model.ReturnDate)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ReturnDate)</dd>
+            </dl>
+
+            <form asp-action="Delete" class="mt-4 d-flex gap-2">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger px-4">Delete</button>
+                <a asp-action="Index" class="btn btn-outline-success px-4">Back to List</a>
+            </form>
+        </div>
+    </div>
+
+</div>

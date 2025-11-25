@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Library_Management_System.Models.LibrarySystem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-success">Borrow Records</h2>
+        <div class="text-center"/>
+        <div class="btn-group" role="group">
+            <a asp-action="Create" class="btn btn-success px-3">Add Record</a>
+            <a asp-action="Filtered" class="btn btn-outline-success px-3">Filtered Records</a>
+         </div>
+        </div>
+    </div>
+
+    <div class="card border-0">
+        <div class="card-header text-white" style="background-color:#2d6a4f;">
+            <h5 class="mb-0">Overview</h5>
+        </div>
+
+        <div class="card-body p-3">
+
+            <table class="table table-hover">
+                <thead style="background-color:#95d5b2;">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.BorrowerName)</th>
+                        <th>@Html.DisplayNameFor(model => model.BookTitle)</th>
+                        <th>@Html.DisplayNameFor(model => model.Author)</th>
+                        <th>@Html.DisplayNameFor(model => model.BorrowDate)</th>
+                        <th>@Html.DisplayNameFor(model => model.ReturnDate)</th>
+                        <th>@Html.DisplayNameFor(model => model.DaysBorrowed)</th>
+                        <th>@Html.DisplayNameFor(model => model.LateFee)</th>
+                        <th>@Html.DisplayNameFor(model => model.BorrowDurationCategory)</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.BorrowerName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.BookTitle)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Author)</td>
+                            <td>@Html.DisplayFor(modelItem => item.BorrowDate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ReturnDate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DaysBorrowed)</td>
+
+                            <td class="text-danger">
+                                @Html.DisplayFor(modelItem => item.LateFee)
+                            </td>
+
+                            <td>
+                                <span class="badge rounded-pill
+                                    @(item.BorrowDurationCategory == "Short-term" ? "bg-success" :
+                                                                        item.BorrowDurationCategory == "Regular" ? "bg-warning text-dark" :
+                                                                        "bg-danger")">
+                                @Html.DisplayFor(modelItem => item.BorrowDurationCategory)
+                            </span>
+                        </td>
+
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-success">Edit</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Details</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                                </div>
+                            </td>
+
+                        </tr>
+                                        }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>

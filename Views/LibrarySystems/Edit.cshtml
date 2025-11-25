@@ -1,0 +1,66 @@
+﻿@model Library_Management_System.Models.LibrarySystem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-5">
+
+    <h2 class="fw-bold text-success mb-4">Edit Borrow Record</h2>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-header text-white" style="background-color:#1b4332;">
+            <h5 class="mb-0">Edit Record Details</h5>
+        </div>
+
+        <div class="card-body p-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="BorrowerName" class="form-label text-success fw-semibold"></label>
+                    <input asp-for="BorrowerName" class="form-control" />
+                    <span asp-validation-for="BorrowerName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="BookTitle" class="form-label text-success fw-semibold"></label>
+                    <input asp-for="BookTitle" class="form-control" />
+                    <span asp-validation-for="BookTitle" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Author" class="form-label text-success fw-semibold"></label>
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="BorrowDate" class="form-label text-success fw-semibold"></label>
+                    <input asp-for="BorrowDate" class="form-control" />
+                    <span asp-validation-for="BorrowDate" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ReturnDate" class="form-label text-success fw-semibold"></label>
+                    <input asp-for="ReturnDate" class="form-control" />
+                    <span asp-validation-for="ReturnDate" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success px-4">Save</button>
+                    <a asp-action="Index" class="btn btn-outline-success px-4">Back to List</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
