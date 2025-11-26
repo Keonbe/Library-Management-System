@@ -36,7 +36,6 @@
                         <th>@Html.DisplayNameFor(m => m.DaysBorrowed)</th>
                         <th>@Html.DisplayNameFor(m => m.LateFee)</th>
                         <th>@Html.DisplayNameFor(m => m.BorrowDurationCategory)</th>
-                        <th class="text-center">Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,9 +55,6 @@
                                                                             "bg-danger")">
                                 @item.BorrowDurationCategory
                             </span>
-                        </td>
-                        <td class="text-center">
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-success">Details</a>
                         </td>
                     </tr>
                                         }
